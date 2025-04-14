@@ -23,7 +23,7 @@ public class HelperPostgreSQL {
 
     public HelperPostgreSQL() {//Constructor
         String driver = "org.postgresql.Driver";
-        String uri = "jdbc:postgresql://localhost:5432/postgres";
+        String uri = "jdbc:postgresql://localhost:5432/integrador1";
 
         try {
             Class.forName(driver).getDeclaredConstructor().newInstance();
@@ -83,10 +83,10 @@ public class HelperPostgreSQL {
         this.conn.prepareStatement(tableFactura).execute();
         this.conn.commit();
         
-        String tableProducto = "CREATE TABLE IF NOT EXISTS Producto(" +
-                "idProducto SERIAL PRIMARY KEY, " +
-                "nombre VARCHAR(45), " +
-                "valor FLOAT);";
+            String tableProducto = "CREATE TABLE IF NOT EXISTS Producto(" +
+                    "idProducto SERIAL PRIMARY KEY, " +
+                    "nombre VARCHAR(45), " +
+                    "valor FLOAT);";
         this.conn.prepareStatement(tableProducto).execute();
         this.conn.commit();
         

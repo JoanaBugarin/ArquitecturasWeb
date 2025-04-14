@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import tp1.DTO.ClienteDTO;
 import tp1.entities.Cliente;
 
 public class ClienteDAO {
@@ -40,7 +41,7 @@ public class ClienteDAO {
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
-    public List<Cliente> selectList() {
+    public List<ClienteDTO> selectList() {
         String query = "SELECT c.idcliente AS idCliente, c.nombre AS cliente, c.email AS email, " +
                        "SUM(fp.cantidad * p.valor) AS total_facturado " +
                        "FROM cliente c " +
@@ -51,18 +52,18 @@ public class ClienteDAO {
                        "ORDER BY total_facturado DESC;";
         PreparedStatement ps = null;
         ResultSet rs = null;
-        List<Cliente> listado = new ArrayList<>();
+        List<ClienteDTO> listado = new ArrayList<>();
 
         try {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
 
             while (rs.next()) { // Recorrer el ResultSet
-                Integer idCliente = rs.getInt("idCliente");
                 String nombre = rs.getString("cliente");
                 String email = rs.getString("email");
+                int cant_vendida = rs.getInt("total_facturado");
 
-                Cliente cliente = new Cliente(idCliente, nombre, email);
+                ClienteDTO cliente = new ClienteDTO(nombre, email, cant_vendida);
                 listado.add(cliente);
             }
         } catch (SQLException e) {

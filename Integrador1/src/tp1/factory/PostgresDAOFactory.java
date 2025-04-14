@@ -15,7 +15,7 @@ public class PostgresDAOFactory extends AbstractFactory {
 	private static PostgresDAOFactory instance = null;
 
     public static final String DRIVER = "org.postgresql.Driver";
-    public static final String uri = "jdbc:postgresql://localhost:5432/postgres";
+    public static final String uri = "jdbc:postgresql://localhost:5432/integrador1";
     public static Connection conn;
 
     private PostgresDAOFactory() {

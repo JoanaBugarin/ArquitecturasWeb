@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import tp1.DTO.ProductoDTO;
 import tp1.entities.Producto;
 
 public class ProductoDAO {
@@ -27,15 +28,16 @@ public class ProductoDAO {
     }
 
 
-    public Producto find() {
+    public ProductoDTO find() {
     	String query = "SELECT p.idproducto AS idProducto, p.nombre AS producto, p.valor AS valor, " +
-                "SUM(fp.cantidad * p.valor) AS recaudacion " +
+                "SUM(fp.cantidad * p.valor) AS recaudacion, " +
+                "SUM(fp.cantidad) AS cantidad_vendida " +
                 "FROM producto p " +
                 "JOIN factura_producto fp ON p.idproducto = fp.idproducto " +
                 "GROUP BY p.idproducto, p.nombre, p.valor " +
                 "ORDER BY recaudacion DESC " +
                 "LIMIT 1;";
-    	Producto prodXrecaudacion = null;
+    	ProductoDTO prodXrecaudacion = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
@@ -43,12 +45,12 @@ public class ProductoDAO {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) { //
-                Integer idProducto = rs.getInt("idProducto"); 
                 String nombre = rs.getString("producto");
                 Float valor = rs.getFloat("valor");
+                int cant_vendidas = rs.getInt("cantidad_vendida");
 
                 // Crear una nueva instancia de Producto con los datos recuperados
-                prodXrecaudacion = new Producto(idProducto, nombre, valor);
+                prodXrecaudacion = new ProductoDTO(nombre, valor, cant_vendidas);
             }
         } catch (SQLException e) {
             e.printStackTrace();
