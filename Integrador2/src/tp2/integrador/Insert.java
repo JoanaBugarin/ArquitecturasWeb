@@ -1,12 +1,12 @@
-package edu.isistan;
+package tp2.integrador;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import edu.isistan.dao.Carrera;
-import edu.isistan.dao.Estudiante;
-import edu.isistan.dao.EstudianteCarrera;
+import tp2.integrador.entities.Carrera;
+import tp2.integrador.entities.Estudiante;
+import tp2.integrador.entities.EstudianteCarrera;
 
 public class Insert {
 

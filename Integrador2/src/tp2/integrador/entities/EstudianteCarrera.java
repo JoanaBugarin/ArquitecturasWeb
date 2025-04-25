@@ -1,4 +1,4 @@
-package edu.isistan.dao;
+package tp2.integrador.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -1,13 +1,12 @@
-package edu.isistan;
+package tp2.integrador;
 
-import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import edu.isistan.dao.Carrera;
-import edu.isistan.dao.Estudiante;
+import tp2.integrador.entities.Carrera;
+import tp2.integrador.entities.Estudiante;
 
 public class Select {
 	
