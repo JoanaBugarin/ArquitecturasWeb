@@ -1,4 +1,4 @@
-package edu.isistan;
+package tp2.integrador;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

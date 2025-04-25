@@ -1,4 +1,4 @@
-package edu.isistan.dao;
+package tp2.integrador.entities;
 
 import java.util.ArrayList;
 import java.util.List;
