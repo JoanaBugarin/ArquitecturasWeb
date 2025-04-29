@@ -2,6 +2,7 @@ package main.java;
 
 import main.java.DTO.CarreraConCantidadInscriptosDTO;
 import main.java.DTO.EstudianteDTO;
+import main.java.DTO.ReporteCarreraDTO;
 import main.java.entities.Carrera;
 import main.java.entities.Estudiante;
 import main.java.entities.EstudianteCarrera;
@@ -98,5 +99,19 @@ public class Main {
         for (EstudianteDTO estudianteDTO : estudiantesPorCarrera){
             System.out.println(estudianteDTO);
         }
+
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println("3 Generar un reporte de las carreras, que para cada carrera incluya información de los\n" +
+                "inscriptos y egresados por año. Se deben ordenar las carreras alfabéticamente, y presentar\n" +
+                "los años de manera cronológica.");
+        List<ReporteCarreraDTO> reporteCarreras = carreraRepository.generarReporteCarreras();
+        System.out.println("Lista de reporte de carreras");
+        for (ReporteCarreraDTO reporteCarreraDTO : reporteCarreras){
+            System.out.println(reporteCarreraDTO);
+        }
+
+
+
+
     }
 }
