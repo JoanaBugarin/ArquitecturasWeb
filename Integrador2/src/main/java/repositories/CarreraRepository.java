@@ -146,12 +146,6 @@ public class CarreraRepository {
     }
 
 
-
-
-
-
-
-
 }
 
 
