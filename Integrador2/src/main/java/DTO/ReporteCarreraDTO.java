@@ -13,6 +13,38 @@ public class ReporteCarreraDTO {
         this.cantidadEgresados = cantidadEgresados;
     }
 
+    public String getNombreCarrera() {
+        return nombreCarrera;
+    }
+
+    public void setNombreCarrera(String nombreCarrera) {
+        this.nombreCarrera = nombreCarrera;
+    }
+
+    public long getCantidadInscriptos() {
+        return cantidadInscriptos;
+    }
+
+    public void setCantidadInscriptos(long cantidadInscriptos) {
+        this.cantidadInscriptos = cantidadInscriptos;
+    }
+
+    public long getCantidadEgresados() {
+        return cantidadEgresados;
+    }
+
+    public void setCantidadEgresados(long cantidadEgresados) {
+        this.cantidadEgresados = cantidadEgresados;
+    }
+
+    public int getAnio() {
+        return anio;
+    }
+
+    public void setAnio(int anio) {
+        this.anio = anio;
+    }
+
     @Override
     public String toString() {
         return "Reporte de carreras {" +
