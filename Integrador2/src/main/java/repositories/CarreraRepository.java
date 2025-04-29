@@ -6,12 +6,16 @@ import jakarta.persistence.TypedQuery;
 import main.java.DTO.CarreraConCantidadInscriptosDTO;
 import main.java.DTO.CarreraDTO;
 import main.java.DTO.EstudianteDTO;
+import main.java.DTO.ReporteCarreraDTO;
 import main.java.entities.Carrera;
 import main.java.entities.Estudiante;
 import main.java.factories.EMFactory;
 
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.List;
+
+
 
 public class CarreraRepository {
 
@@ -68,4 +72,39 @@ public class CarreraRepository {
             return true;
         return false;
     }
+
+    /** Retorna un reporte anual sobre las carreras, sus inscriptos y sus egresados  */
+
+
+    public List<ReporteCarreraDTO> obtenerReporteCarreras() {
+        EntityManager em = EMFactory.getEntityManager(); // Obtener el EntityManager
+        try {
+            // Crear la consulta JPQL
+            return em.createQuery(
+                    "SELECT new main.java.DTO.ReporteCarreraDTO( " +
+                            "    ec.inscripcion AS anio, " +                           // Año de inscripción
+                            "    ec.carrera.carrera AS nombreCarrera, " +              // Nombre de la carrera
+                            "    COUNT(CASE WHEN ec.inscripcion IS NOT NULL THEN ec.id END) AS cantidadInscriptos, " + // Conteo de inscriptos
+                            "    COUNT(CASE WHEN ec.graduacion IS NOT NULL THEN ec.id END) AS cantidadEgresados " +    // Conteo de egresados
+                            ") " +
+                            "FROM EstudianteCarrera ec " +
+                            "WHERE ec.inscripcion > 0 OR ec.graduacion > 0 " +         // Filtrar años válidos para inscripciones y graduaciones
+                            "GROUP BY ec.carrera.carrera, ec.inscripcion " +           // Agrupar por carrera y año
+                            "ORDER BY ec.carrera.carrera ASC, ec.inscripcion ASC",     // Ordenar carreras alfabéticamente y años cronológicamente
+                    ReporteCarreraDTO.class
+            ).getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>(); // Si hay errores, retorna lista vacía
+        } finally {
+            em.close(); // Cerrar el EntityManager siempre
+        }
+    }
+
 }
+
+
+
+
+
+

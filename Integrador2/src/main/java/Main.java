@@ -2,6 +2,7 @@ package main.java;
 
 import main.java.DTO.CarreraConCantidadInscriptosDTO;
 import main.java.DTO.EstudianteDTO;
+import main.java.DTO.ReporteCarreraDTO;
 import main.java.entities.Carrera;
 import main.java.entities.Estudiante;
 import main.java.entities.EstudianteCarrera;
@@ -98,5 +99,17 @@ public class Main {
         for (EstudianteDTO estudianteDTO : estudiantesPorCarrera){
             System.out.println(estudianteDTO);
         }
+
+        System.out.println("--------------------------------------------------------------------------");
+        System.out.println(" PUNTO 3");
+        List<ReporteCarreraDTO> reporteCarreras = carreraRepository.obtenerReporteCarreras();
+        System.out.println("Lista de reporte de carreras");
+        for (ReporteCarreraDTO reporteCarreraDTO : reporteCarreras){
+            System.out.println(reporteCarreraDTO);
+        }
+
+
+
+
     }
 }
