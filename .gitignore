@@ -1,0 +1,19 @@
+# IntelliJ IDEA
+.idea/
+*.iml
+workspace.xml
+tasks.xml
+usage.statistics.xml
+vcs.xml
+
+# Dependencias
+node_modules/
+target/
+out/
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
