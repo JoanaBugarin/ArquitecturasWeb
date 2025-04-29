@@ -11,6 +11,21 @@ target/
 *.iws
 *.iml
 *.ipr
+workspace.xml
+tasks.xml
+usage.statistics.xml
+vcs.xml
+
+# Dependencias
+node_modules/
+out/
+
+# Archivos temporales
+.DS_Store
+Thumbs.db
+
+# Entornos virtuales
+venv/
 
 ### Eclipse ###
 .apt_generated
