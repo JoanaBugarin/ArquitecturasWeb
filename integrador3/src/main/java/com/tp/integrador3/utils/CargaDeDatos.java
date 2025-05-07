@@ -13,6 +13,7 @@ import com.opencsv.CSVReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Optional;
 
 @Component
 public class CargaDeDatos {
@@ -68,11 +69,13 @@ public class CargaDeDatos {
             }
         }
 
+
         //Carga de EstudiantesCarreras
         try (CSVReader reader = new CSVReader(new FileReader(estudiantesCarrerasCSV))) {
             String[] linea;
             reader.readNext(); // salta cabecera
             while ((linea = reader.readNext()) != null) {
+
                 EstudianteCarrera estCar= new EstudianteCarrera();
                 estCar.setId(Integer.parseInt(linea[0]));
                 Integer idEstudiante = Integer.parseInt(linea[1]);
@@ -91,6 +94,7 @@ public class CargaDeDatos {
                 estCar.setAntiguedad(Integer.parseInt(linea[5]));
 
                 estudianteCarreraRepository.save(estCar);
+
             }
         }
     }
