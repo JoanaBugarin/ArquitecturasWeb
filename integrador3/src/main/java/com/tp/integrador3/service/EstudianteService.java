@@ -2,6 +2,7 @@ package com.tp.integrador3.service;
 
 import com.tp.integrador3.domain.Estudiante;
 import com.tp.integrador3.repository.EstudianteRepository;
+import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import com.tp.integrador3.service.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -53,6 +54,22 @@ public class EstudianteService {
                 .stream()
                 .map(EstudianteResponseDTO::new) // Convertir cada estudiante a DTO
                 .toList();
+    }
+
+    @Transactional
+    public EstudianteResponseDTO createEstudiante(EstudianteRequestDTO estudianteDTO) {
+        Estudiante estudiante = new Estudiante(
+                estudianteDTO.getDni(),
+                estudianteDTO.getNombre(),
+                estudianteDTO.getApellido(),
+                estudianteDTO.getEdad(),
+                estudianteDTO.getGenero(),
+                estudianteDTO.getCiudad(),
+                estudianteDTO.getLu()
+        );
+
+        estudianteRepository.save(estudiante);
+        return new EstudianteResponseDTO(estudiante);
     }
 
 

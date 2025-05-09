@@ -1,12 +1,10 @@
 package com.tp.integrador3.web.estudiante;
 
 import com.tp.integrador3.service.EstudianteService;
+import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,6 +14,12 @@ import java.util.List;
 public class EstudianteResource {
 
     private final EstudianteService estudianteService;
+
+    //a) da de alta un estudiante
+    @PostMapping("")
+    public EstudianteResponseDTO createEstudiante(@RequestBody EstudianteRequestDTO estudianteDTO) {
+        return estudianteService.createEstudiante(estudianteDTO);
+    }
 
     //c) recupera todos los estudiantes, y especifica el criterio de ordenamiento simple: nombre.
     @GetMapping("")
