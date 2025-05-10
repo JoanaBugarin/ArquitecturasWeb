@@ -17,17 +17,14 @@ import java.util.Optional;
 
 @Component
 public class CargaDeDatos {
-
-    private final EstudianteRepository estudianteRepository;
-    private final CarreraRepository carreraRepository;
-    private final EstudianteCarreraRepository estudianteCarreraRepository;
-
     @Autowired
-    public CargaDeDatos (EstudianteRepository estudianteRepository, CarreraRepository carreraRepository, EstudianteCarreraRepository estudianteCarreraRepository) {
-        this.carreraRepository = carreraRepository;
-        this.estudianteRepository = estudianteRepository;
-        this.estudianteCarreraRepository = estudianteCarreraRepository;
-    }
+    private EstudianteRepository estudianteRepository;
+    @Autowired
+    private CarreraRepository carreraRepository;
+    @Autowired
+    private EstudianteCarreraRepository estudianteCarreraRepository;
+
+
 
     public void cargarDatosDesdeCSV() throws IOException, CsvValidationException {
         File carrerasCSV = ResourceUtils.getFile("src/main/java/com/tp/integrador3/csv/carreras.csv");

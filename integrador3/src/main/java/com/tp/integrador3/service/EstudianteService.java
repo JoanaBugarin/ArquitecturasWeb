@@ -6,6 +6,7 @@ import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import com.tp.integrador3.service.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +16,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class EstudianteService {
-
+    @Autowired
     private final EstudianteRepository estudianteRepository;
 
     @Transactional(readOnly = true)

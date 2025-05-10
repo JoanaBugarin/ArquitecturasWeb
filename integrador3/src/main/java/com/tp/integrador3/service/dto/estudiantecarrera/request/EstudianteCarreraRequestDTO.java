@@ -14,7 +14,7 @@ public class EstudianteCarreraRequestDTO {
     private Integer id;
     @NotNull( message = "El dni es un campo obligatorio.")
     @NotEmpty( message = "El dni es un campo obligatorio.")
-    private Integer estudianteId;
+    private int dni;
     @NotNull( message = "El dni es un campo obligatorio.")
     @NotEmpty( message = "El dni es un campo obligatorio.")
     private Integer carreraId;

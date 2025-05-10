@@ -3,14 +3,15 @@ package com.tp.integrador3.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 @Entity
 @Data
 @NoArgsConstructor
 public class EstudianteCarrera {
     @Id
-    //@GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private long id;
 
     @ManyToOne
     @JoinColumn(name = "dni", nullable = false)

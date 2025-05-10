@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EstudianteCarreraResponseDTO {
 
-    private final Integer id;
+    private final long id;
     private final String estudianteNombre;
     private final String estudianteApellido;
     private final String carreraNombre;

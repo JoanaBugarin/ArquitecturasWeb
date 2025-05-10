@@ -4,6 +4,7 @@ import com.tp.integrador3.service.EstudianteService;
 import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("api/estudiantes")
 @RequiredArgsConstructor
 public class EstudianteResource {
-
+    @Autowired
     private final EstudianteService estudianteService;
 
     //a) da de alta un estudiante

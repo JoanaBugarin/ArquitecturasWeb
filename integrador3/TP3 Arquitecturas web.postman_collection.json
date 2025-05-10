@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "24a8aac1-af95-4b98-9a71-b988c54637de",
+		"name": "TP3 Arquitecturas web",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24218169"
+	},
+	"item": [
+		{
+			"name": "Post estudiante_a",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": 36617518,\r\n  \"nombre\": \"Pepe\",\r\n  \"apellido\": \"Bugarin\",\r\n  \"edad\": 19,\r\n  \"genero\": \"Masculino\",\r\n  \"ciudad\": \"Buenos Aires\",\r\n  \"lu\": 99999\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get estudiante_c",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "estudiantes_carreras_b",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 110, \r\n  \"estudianteId\": 71779527,\r\n  \"carreraId\": 15,\r\n  \"inscripcion\": 2025,\r\n  \"graduacion\": 0,\r\n  \"antiguedad\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes_carreras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes_carreras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "carreras_inscriptos_f",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Reporte_por_carrera_h",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "estudiante_por_lu_d",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Estudiante_por_genero_e",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Estudiante_por_carrera_filtroado_por_ciudad_g",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
