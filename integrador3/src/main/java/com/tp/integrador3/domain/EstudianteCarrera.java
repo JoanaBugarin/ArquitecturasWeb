@@ -10,7 +10,7 @@ import org.springframework.boot.context.properties.bind.DefaultValue;
 @NoArgsConstructor
 public class EstudianteCarrera {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
     @ManyToOne
@@ -31,7 +31,7 @@ public class EstudianteCarrera {
     private Integer antiguedad;
 
     public EstudianteCarrera(Integer id, Estudiante estudiante, Carrera carrera, Integer inscripcion,
-                             Integer graduacion, Integer antiguedad) {
+            Integer graduacion, Integer antiguedad) {
         this.id = id;
         this.estudiante = estudiante;
         this.carrera = carrera;
@@ -41,7 +41,7 @@ public class EstudianteCarrera {
     }
 
     public EstudianteCarrera(Estudiante estudiante, Carrera carrera, Integer inscripcion,
-                             Integer graduacion, Integer antiguedad) {
+            Integer graduacion, Integer antiguedad) {
         this.estudiante = estudiante;
         this.carrera = carrera;
         this.inscripcion = inscripcion;

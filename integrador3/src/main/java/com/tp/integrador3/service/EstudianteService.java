@@ -71,7 +71,7 @@ public class EstudianteService {
                 estudianteDTO.getCiudad(),
                 estudianteDTO.getLu()
         );
-
+        System.out.println("SAVE ESTUDIANTE");
         estudianteRepository.save(estudiante);
         return new EstudianteResponseDTO(estudiante);
     }

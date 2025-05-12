@@ -16,7 +16,7 @@ public class EstudianteResponseDTO {
     private final String ciudad;
     private final int lu;
 
-    public EstudianteResponseDTO (Estudiante e) {
+    public EstudianteResponseDTO(Estudiante e) {
         this.dni = e.getDni();
         this.nombre = e.getNombre();
         this.apellido = e.getApellido();

@@ -14,7 +14,7 @@ public class FilterEstudianteRequestDTO {
     private String nombre;
     private String apellido;
     private String ciudad;
-    @Min(value=0, message = "La pagina no puede ser negativa")
+    @Min(value = 0, message = "La pagina no puede ser negativa")
     private int page = 0;
     @Min(value = 1, message = "El limite no puede ser negativo")
     private int limit = 10;

@@ -9,19 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Estudiante {
     @Id
-    @Column(nullable=false,unique = true)
+    @Column(nullable = false, unique = true)
     private int dni;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String nombre;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String apellido;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private int edad;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String genero;
-    @Column(nullable=false)
+    @Column(nullable = false)
     private String ciudad;
-    @Column(unique = true,nullable = false)
+    @Column(unique = true, nullable = false)
     private int lu;
 
     public Estudiante(int dni, String nombre, String apellido, int edad, String genero, String ciudad, int lu) {

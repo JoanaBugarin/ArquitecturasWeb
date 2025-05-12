@@ -29,20 +29,21 @@ public class EstudianteCarreraService {
 
     @Transactional
     public EstudianteCarreraResponseDTO matricularEstudiante(EstudianteCarreraRequestDTO matriculaDTO) {
-        Estudiante estudiante = estudianteRepository.findById(Long.valueOf(matriculaDTO.getDni()))
+        Estudiante estudiante = estudianteRepository.findById(Integer.valueOf(matriculaDTO.getDni()))
                 .orElseThrow(() -> new NotFoundException("Estudiante", Long.valueOf(matriculaDTO.getDni())));
 
         Carrera carrera = carreraRepository.findById(Long.valueOf(matriculaDTO.getCarreraId()))
                 .orElseThrow(() -> new NotFoundException("Carrera", Long.valueOf(matriculaDTO.getCarreraId())));
 
-        EstudianteCarrera estudianteCarrera = new EstudianteCarrera(estudiante, carrera, matriculaDTO.getInscripcion(), matriculaDTO.getGraduacion(), matriculaDTO.getAntiguedad());
+        EstudianteCarrera estudianteCarrera = new EstudianteCarrera(estudiante, carrera, matriculaDTO.getInscripcion(),
+                matriculaDTO.getGraduacion(), matriculaDTO.getAntiguedad());
         estudianteCarreraRepository.save(estudianteCarrera);
 
         return new EstudianteCarreraResponseDTO(estudianteCarrera);
     }
 
     @Transactional(readOnly = true)
-    public List<ReporteCarreraDTO> getReporteCarreras(){
+    public List<ReporteCarreraDTO> getReporteCarreras() {
         List<ReporteCarreraDTO> inscriptos = estudianteCarreraRepository.getInscriptos();
         List<ReporteCarreraDTO> egresados = estudianteCarreraRepository.getGraduaciones();
 
