@@ -3,8 +3,10 @@ package com.tp.integrador3.web.estudiante;
 import com.tp.integrador3.service.EstudianteService;
 import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,13 +14,15 @@ import java.util.List;
 @RestController
 @RequestMapping("api/estudiantes")
 @RequiredArgsConstructor
+@Validated
+
 public class EstudianteResource {
     @Autowired
     private final EstudianteService estudianteService;
 
     //a) da de alta un estudiante
     @PostMapping("")
-    public EstudianteResponseDTO createEstudiante(@RequestBody EstudianteRequestDTO estudianteDTO) {
+    public EstudianteResponseDTO createEstudiante(@Valid @RequestBody EstudianteRequestDTO estudianteDTO) {
         return estudianteService.createEstudiante(estudianteDTO);
     }
 
