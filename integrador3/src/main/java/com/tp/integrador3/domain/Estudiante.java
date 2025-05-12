@@ -33,4 +33,5 @@ public class Estudiante {
         this.ciudad = ciudad;
         this.lu = lu;
     }
+    
 }
