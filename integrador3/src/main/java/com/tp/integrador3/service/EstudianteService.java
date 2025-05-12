@@ -3,10 +3,13 @@ package com.tp.integrador3.service;
 import com.tp.integrador3.domain.Estudiante;
 import com.tp.integrador3.repository.EstudianteRepository;
 import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
+import com.tp.integrador3.service.dto.estudiante.request.FilterEstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import com.tp.integrador3.service.exception.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,10 +28,10 @@ public class EstudianteService {
     }
 
     @Transactional(readOnly = true)
-    public List<EstudianteResponseDTO> findAllSimpleSort() {
-        Sort sort = Sort.by(Sort.Direction.ASC, "nombre");
-
-        return estudianteRepository.findAll(sort)
+    public List<EstudianteResponseDTO> findAllSimpleSort(FilterEstudianteRequestDTO filter) {
+        Sort sort = filter.getSortDir().equalsIgnoreCase("DESC") ? Sort.by(filter.getOrderBy()).descending() : Sort.by(filter.getOrderBy()).ascending();
+        Pageable pageable = PageRequest.of(filter.getPage(), filter.getLimit(), sort);
+        return estudianteRepository.findAll(pageable)
                 .stream()
                 .map(EstudianteResponseDTO::new)
                 .toList();

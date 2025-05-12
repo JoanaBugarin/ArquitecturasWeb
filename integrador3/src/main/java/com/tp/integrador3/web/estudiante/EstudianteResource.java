@@ -2,6 +2,7 @@ package com.tp.integrador3.web.estudiante;
 
 import com.tp.integrador3.service.EstudianteService;
 import com.tp.integrador3.service.dto.estudiante.request.EstudianteRequestDTO;
+import com.tp.integrador3.service.dto.estudiante.request.FilterEstudianteRequestDTO;
 import com.tp.integrador3.service.dto.estudiante.response.EstudianteResponseDTO;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +29,8 @@ public class EstudianteResource {
 
     //c) recupera todos los estudiantes, y especifica el criterio de ordenamiento simple: nombre.
     @GetMapping("")
-    public List<EstudianteResponseDTO> findAllSimpleSort(){
-        return this.estudianteService.findAllSimpleSort();
+    public List<EstudianteResponseDTO> findAllSimpleSort(@Valid FilterEstudianteRequestDTO estudianteDTO) {
+        return this.estudianteService.findAllSimpleSort(estudianteDTO);
     }
 
     //d) recupera un estudiante, en base a su número de libreta universitaria.
