@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"dni\": 36617518,\r\n  \"nombre\": \"Pepe\",\r\n  \"apellido\": \"Bugarin\",\r\n  \"edad\": 19,\r\n  \"genero\": \"Masculino\",\r\n  \"ciudad\": \"Buenos Aires\",\r\n  \"lu\": 99999\r\n}",
+					"raw": "{\r\n  \"dni\": 36617518,\r\n  \"nombre\": \"Pepe\",\r\n  \"apellido\": \"Perez\",\r\n  \"edad\": 30,\r\n  \"genero\": \"Masculino\",\r\n  \"ciudad\": \"Buenos Aires\",\r\n  \"lu\": 99632\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -41,7 +41,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/api/estudiantes",
+					"raw": "http://localhost:8080/api/estudiantes?orderBy=nombre&sortDir=ASC",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -50,6 +50,16 @@
 					"path": [
 						"api",
 						"estudiantes"
+					],
+					"query": [
+						{
+							"key": "orderBy",
+							"value": "nombre"
+						},
+						{
+							"key": "sortDir",
+							"value": "ASC"
+						}
 					]
 				}
 			},
@@ -88,7 +98,20 @@
 			"name": "carreras_inscriptos_f",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carreras/inscriptos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carreras",
+						"inscriptos"
+					]
+				}
 			},
 			"response": []
 		},
@@ -96,7 +119,20 @@
 			"name": "Reporte_por_carrera_h",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes_carreras/reporte",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes_carreras",
+						"reporte"
+					]
+				}
 			},
 			"response": []
 		},
@@ -104,7 +140,21 @@
 			"name": "estudiante_por_lu_d",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/lu/72976",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"lu",
+						"72976"
+					]
+				}
 			},
 			"response": []
 		},
@@ -112,7 +162,21 @@
 			"name": "Estudiante_por_genero_e",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/genero/Male",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"genero",
+						"Male"
+					]
+				}
 			},
 			"response": []
 		},
@@ -120,7 +184,23 @@
 			"name": "Estudiante_por_carrera_filtroado_por_ciudad_g",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/estudiantes/carrera/2/ciudad/Necochea",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"estudiantes",
+						"carrera",
+						"2",
+						"ciudad",
+						"Necochea"
+					]
+				}
 			},
 			"response": []
 		}
